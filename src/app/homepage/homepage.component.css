@@ -1,0 +1,121 @@
+.navinit {
+    background-color: #D40501;
+    padding: 1rem;
+}
+.imgbrand {
+    width: 2.2rem;
+    height: 2.2rem;
+}
+.textbrand {
+    font-weight: 700;
+    color: white;
+    font-size: larger;
+}
+.spangames {
+    font-weight: 500;
+    color: white;
+    font-size: large;
+}
+
+.itemsplat{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 992px) {
+    .itemsplat {
+        margin-top: 1rem;
+    }
+}
+
+.imgcar {
+    max-height: 30rem;
+}
+
+.sec1 {
+    height: 30rem;
+    max-height: 30rem;
+}
+
+.carousel-inner {
+    max-height: 30rem;
+}
+
+@media (max-width: 992px) {
+    .imgcar {
+        max-height: 10rem;
+    }
+    
+    .sec1 {
+        height: 10rem;
+        max-height: 10rem;
+    }
+    
+    .carousel-inner {
+        max-height: 10rem;
+    }
+}
+
+.formsearchgame {
+    margin-right: 2rem;
+}
+
+.navgames {
+    margin-left: 1rem;
+    font-weight: 700;
+    color: #D40501;
+}
+
+.btnsearch {
+    background-color: #D40501;
+    color: white;
+    border: white;
+}
+
+.btnsearch:hover {
+    background-color: white;
+    color: #D40501;
+    border: 1px solid #D40501;
+}
+
+.inputsearch {
+    border: 1px solid #D40501;
+    margin-right: 0.5rem;
+    padding-right: 4rem;
+}
+
+.imgbtn {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@media (max-width: 767px){
+    .inputsearch {
+        margin-left: 1rem;
+    }
+}
+
+.imgplat {
+    height: 2rem;
+    width: 2rem;
+}
+
+.stucard{
+    height: 2rem;
+    margin-top: 0.5rem;
+}
+
+.card-text{
+    font-weight: 500;
+}
+
+.imgrating {
+    width: 3rem;
+    height: 4rem;
+    margin-left: 0.4rem;
+}
+
+.btnplat{
+    cursor: pointer;
+}

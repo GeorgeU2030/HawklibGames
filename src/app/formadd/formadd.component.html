@@ -1,0 +1,79 @@
+<div class="logobrand d-flex">
+    <img src="assets/images/goshawk.png" class="imgbrand">
+    <a class="nav-link textbrand" aria-current="page" href="#">HawkLib <span class="spangames"> Games</span></a>
+</div>
+<div class="d-flex flex-column justify-content-center align-items-center divinit ">
+  <form class="p-4 formgameclass mb-5" [formGroup]="formgame">
+    <div class="form-group">
+      <label for="nameOfGame" >Name of Game</label>
+      <input type="text" class="form-control" id="nameOfGame" formControlName="nameOfGame">
+    </div>
+    <div class="form-group">
+      <label for="yearOfGame">Year of Game</label>
+      <input type="number" class="form-control text-end" id="yearOfGame" value=2024 formControlName="yearOfGame">
+    </div>
+
+    <div class="dropdown mt-3 mb-3 ">
+      <button class="btn dropdown-toggle dropmen" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Rating: {{ formgame.get('rating')?.value }}
+      </button>
+      <div class="dropdown-menu text-center customdrop" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)="setRating('E')">E</a>
+        <a class="dropdown-item" (click)="setRating('E10')">E10</a>
+        <a class="dropdown-item" (click)="setRating('T')">T</a>
+        <a class="dropdown-item" (click)="setRating('M')">M</a>
+        <a class="dropdown-item" (click)="setRating('A')">A</a>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="coverGame">Cover</label>
+        <input type="text" class="form-control" id="coverGame" formControlName="coverGame">
+      </div>
+      <div class="form-group">
+        <label for="storageGame">Storage</label>
+        <div class="input-group">
+          <input type="number" class="form-control text-end" id="storageGame" value="50" formControlName="storageGame">
+          <div class="input-group-append ">
+            <span class="input-group-text inpgb">GB</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="studioGame">Studio</label>
+        <input type="text" class="form-control" id="studioGame" formControlName="studioGame">
+      </div>
+      <div class="form-group">
+        <label for="priceGame">Precio</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="number" class="form-control text-end" id="priceGame" value="50" formControlName="priceGame">
+          <div class="input-group-append">
+            <span class="input-group-text">USD</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Plataformas</label>
+        <div class="d-flex flex-wrap mt-2 mb-4">
+        <div *ngFor="let platform of platforms" >
+          <input type="checkbox" [id]="platform" [value]="platform" (change)="updatePlatforms($event)">
+          <label [for]="platform">
+            <img *ngIf="platform === 'Xbox'" src="assets/images/xboxcolor.png" alt="Xbox" class="imgplatf">
+            <img *ngIf="platform === 'PS'" src="assets/images/pscolor.png" alt="PS" class="imgplatf">
+            <img *ngIf="platform === 'Nintendo'" src="assets/images/nintendocolor.png" alt="Nintendo" class="imgplatf">
+            <img *ngIf="platform === 'PC'" src="assets/images/windowsimg.png" alt="PC" class="imgplatf">
+          </label>
+        </div>
+        </div>
+      </div>
+      
+      <div class="d-flex justify-content-center mt-2">
+      <button class="btn btnform" (click)="addGame()">
+        Add Game
+      </button>
+    </div>
+  </form>
+</div>

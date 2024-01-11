@@ -1,0 +1,133 @@
+<nav class="navbar navbar-expand-lg navinit">
+    <div class="container-fluid">
+      <a class="navbar-brand" >
+        <img src="assets/images/goshawk.png" class="imgbrand">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ">
+            <a class="nav-link textbrand" aria-current="page" href="#">HawkLib <span class="spangames"> Games</span></a>
+          </li>
+        </ul>
+  
+        <ul class="navbar-nav ">
+  
+  
+          <li class="nav-item">
+            <a (click)="obtainxboxgames()" class="btnplat">
+            <img src="assets/images/xbox.png" class="itemsplat">
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a (click)="obtainpsgames()" class="btnplat">
+            <img src="assets/images/ps.png" class="itemsplat">
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a (click)="obtainnintendogames()" class="btnplat">
+            <img src="assets/images/nintendo.png" class="itemsplat">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <section style="background-color: white;" class="sec1">
+  
+      <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active mx-auto text-center " data-bs-interval="1000">
+            <img [src]="game1?.cover" class="d-block imgcar img-fluid w-100" alt="...">
+          </div>
+          <div class="carousel-item mx-auto text-center " data-bs-interval="2000">
+            <img [src]="game2?.cover" class="d-block imgcar img-fluid w-100" alt="...">
+          </div>
+          <div class="carousel-item mx-auto text-center ">
+            <img [src]="game3?.cover" class="d-block imgcar img-fluid w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  </section>
+  
+  
+  
+    <nav class="navbar navbar-expand-lg mt-4">
+      <div class="container-fluid">
+        <a class="navbar-brand navgames">My Games</a>
+        <a class="btn" routerLink="/formadd" routerLinkActive="active" >
+          <img src="assets/images/addbtn.png" class="img-fluid imgbtn">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           
+          </ul>
+          <form class="d-flex formsearchgame" role="search" [formGroup]="formgame">
+            <input class="form-control inputsearch" type="search" placeholder="Search" aria-label="Search" formControlName="namegame">
+            <button class="btn btnsearch" type="submit" (click)="searchGame()">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  
+    <section class="container-fluid">
+      <div class="row mt-2">
+        @for (game of listGames; track game.idgame)
+        {
+          <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center" >
+            <div class="card" style="width: 18rem;">
+    
+              <img src="{{game.cover}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{game.namegame}}</h5>
+           
+              <div class="row" >
+                  <div class="col-8" >
+                    <div class="mb-2">
+                  <p class="card-text" >{{game.yeargame}}</p>
+                    </div>
+                  <div class="d-flex" >
+                    <div *ngFor="let platform of game.platformgame.split(','); let i = index" class="platform-logo" [style.margin-left.px]="i > 0 ? 15 : 0">
+                      <img [src]="getPlatformLogoUrl(platform)" alt="{{ platform }}" class="imgplat ">
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="col-4" >
+                    <img [src]="getRating(game.rating)" class="imgrating img-fluid">
+                  </div>
+              </div>
+
+              
+              <div class="d-flex stucard" >
+                <p class="card-text w-75 ">{{game.studio}}</p>
+                <p class="card-text w-25">{{game.storage}} GB</p>
+              </div>
+              <div >
+                <p class="card-text"> $ {{game.price}} USD</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+    
+    
+  
